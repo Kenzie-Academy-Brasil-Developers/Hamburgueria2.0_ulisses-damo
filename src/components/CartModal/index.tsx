@@ -19,15 +19,14 @@ const CartModal = () => {
           </button>
         </header>
         <div className="cartBox">
-          <CartProductList
-            cartList={[]}
-            setCartList={function (
-              value: SetStateAction<IProduct | null>
-            ): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-
+          {/* <CartProductList */}
+          // cartList={[]}
+          {/* setCartList={function ( */}
+          {/* value: SetStateAction<IProduct | null> */}
+          {/* ): void { */}
+          {/* // throw new Error("Function not implemented."); */}
+          {/* // }} */}
+          {/* // /> */}
           <div className="emptyBox">
             <StyledTitle tag="h3" $fontSize="three" textAlign="center">
               Sua sacola está vazia

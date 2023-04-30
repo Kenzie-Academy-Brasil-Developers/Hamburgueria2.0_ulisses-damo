@@ -19,7 +19,7 @@ const CartProductList = ({
     <StyledCartProductList>
       <ul>
         {/* {cartListProducts.map((cartProduct) => { */}
-        <CartProductCard />;{/* })} */}
+        {/* <CartProductCard />;})} */}
       </ul>
 
       <div className="totalBox">
