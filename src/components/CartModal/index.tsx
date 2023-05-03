@@ -3,10 +3,11 @@ import CartProductList from "./CartProductList";
 
 import { StyledCartModalBox } from "./style";
 import { StyledParagraph, StyledTitle } from "../../styles/typography";
-import { SetStateAction, useState } from "react";
-import { IProduct } from "../../providers/cartContext";
+import { SetStateAction, useContext, useState } from "react";
+import { CartContext, IProduct } from "../../providers/cartContext";
 
 const CartModal = () => {
+  const { setIsOpen } = useContext(CartContext);
   return (
     <StyledCartModalBox>
       <dialog>
@@ -14,19 +15,19 @@ const CartModal = () => {
           <StyledTitle tag="h2" $fontSize="three">
             Carrinho de compras
           </StyledTitle>
-          <button type="button" aria-label="Fechar" onClick={() => {}}>
+          <button
+            type="button"
+            aria-label="Fechar"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
             <MdClose size={21} />
           </button>
         </header>
         <div className="cartBox">
-          {/* <CartProductList */}
-          // cartList={[]}
-          {/* setCartList={function ( */}
-          {/* value: SetStateAction<IProduct | null> */}
-          {/* ): void { */}
-          {/* // throw new Error("Function not implemented."); */}
-          {/* // }} */}
-          {/* // /> */}
+          <CartProductList />
+
           <div className="emptyBox">
             <StyledTitle tag="h3" $fontSize="three" textAlign="center">
               Sua sacola está vazia

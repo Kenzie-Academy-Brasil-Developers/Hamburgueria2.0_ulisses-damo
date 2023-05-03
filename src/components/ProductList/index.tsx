@@ -1,24 +1,14 @@
 import ProductCard from "./ProductCard";
 import { StyledProductList } from "./style";
-import { IProduct } from "../../providers/cartContext";
+import { CartContext, IProduct } from "../../providers/cartContext";
+import { useContext } from "react";
 
-interface IProductsListProps {
-  productsList: IProduct[];
-  setProductsList: React.Dispatch<React.SetStateAction<IProduct | null>>;
-}
-
-export const ProductList = ({
-  productsList,
-  setProductsList,
-}: IProductsListProps) => {
+export const ProductList = () => {
+  const { productsList } = useContext(CartContext);
   return (
     <StyledProductList>
       {productsList.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          setProductsList={setProductsList}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </StyledProductList>
   );

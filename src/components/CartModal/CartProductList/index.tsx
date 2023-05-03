@@ -6,29 +6,29 @@ import { StyledParagraph } from "../../../styles/typography";
 import { useContext } from "react";
 import { CartContext, IProduct } from "../../../providers/cartContext";
 
-interface IProductCartProps {
-  cartListProducts: IProduct[];
-  setCartList: React.Dispatch<React.SetStateAction<IProduct | null>>;
-}
-
-const CartProductList = ({
-  cartListProducts,
-  setCartList,
-}: IProductCartProps) => {
+const CartProductList = () => {
+  const { cartList, totalValue, setCartList } = useContext(CartContext);
   return (
     <StyledCartProductList>
       <ul>
-        {/* {cartListProducts.map((cartProduct) => { */}
-        {/* <CartProductCard />;})} */}
+        {cartList.map((cartProduct) => (
+          <CartProductCard key={cartProduct.id} product={cartProduct} />
+        ))}
       </ul>
 
       <div className="totalBox">
         <StyledParagraph>
           <strong>Total</strong>
         </StyledParagraph>
-        <StyledParagraph className="total">R$ 14,00</StyledParagraph>
+        <StyledParagraph className="total">
+          R$ {totalValue().toFixed(2)}
+        </StyledParagraph>
       </div>
-      <StyledButton $buttonSize="default" $buttonStyle="gray">
+      <StyledButton
+        $buttonSize="default"
+        $buttonStyle="gray"
+        onClick={() => setCartList([])}
+      >
         Remover todos
       </StyledButton>
     </StyledCartProductList>

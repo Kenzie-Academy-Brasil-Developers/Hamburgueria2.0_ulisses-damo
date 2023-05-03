@@ -7,10 +7,9 @@ import { useContext } from "react";
 
 interface IProductCartProps {
   product: IProduct;
-  setCartList: React.Dispatch<React.SetStateAction<IProduct | null>>;
 }
 
-const CartProductCard = ({ product, setCartList }: IProductCartProps) => {
+const CartProductCard = ({ product }: IProductCartProps) => {
   const { removeFromCartList } = useContext(CartContext);
 
   return (

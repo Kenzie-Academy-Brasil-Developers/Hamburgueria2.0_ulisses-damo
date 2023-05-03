@@ -10,6 +10,7 @@ export const registerFormSchema = z
       .string()
       .min(8, "A senha precisa conter no mínimo 8 caracteres")
       .regex(/(?=.*?[a-z])/, "É necessário ao menos uma letra minúscula")
+      .regex(/(?=.*?[A-Z])/, "É necessário ao menos uma letra maiúscula")
       .regex(/(?=.*?[0-9])/, "É necessário pelo menos um número")
       .regex(/(\W|_)/, "Deve conter no mínimo 1 caracter especial."),
     name: z

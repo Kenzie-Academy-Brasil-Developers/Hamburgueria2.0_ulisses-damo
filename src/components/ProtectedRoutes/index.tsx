@@ -5,6 +5,7 @@ import { CartProvider } from "../../providers/cartContext";
 
 export const ProtectedRoutes = () => {
   const { user } = useContext(UserContext);
+  console.log(user);
 
   return user ? (
     <CartProvider>

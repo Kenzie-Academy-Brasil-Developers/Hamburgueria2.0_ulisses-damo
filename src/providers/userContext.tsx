@@ -70,7 +70,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     if (token && userId) {
       userAutoLogin();
     }
-  });
+  }, []);
 
   const userRegister = async (
     formData: TRegisterFormValues,

@@ -1,14 +1,15 @@
 import { StyledProductCard } from "./style";
 import { StyledButton } from "../../../styles/button";
 import { StyledParagraph, StyledTitle } from "../../../styles/typography";
-import { IProduct } from "../../../providers/cartContext";
+import { CartContext, IProduct } from "../../../providers/cartContext";
+import { useContext } from "react";
 
 interface IProductCardProps {
   product: IProduct;
-  setProductsList: React.Dispatch<React.SetStateAction<IProduct | null>>;
 }
 
-const ProductCard = ({ product, setProductsList }: IProductCardProps) => {
+const ProductCard = ({ product }: IProductCardProps) => {
+  const { addToCartList } = useContext(CartContext);
   return (
     <StyledProductCard>
       <div className="imageBox">
@@ -25,7 +26,7 @@ const ProductCard = ({ product, setProductsList }: IProductCardProps) => {
         <StyledButton
           $buttonSize="medium"
           $buttonStyle="green"
-          onClick={() => setProductsList(product)}
+          onClick={() => addToCartList(product)}
         >
           Adicionar
         </StyledButton>

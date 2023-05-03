@@ -5,14 +5,17 @@ import { ThemeProvider } from "styled-components";
 import { mainTheme } from "./styles/theme";
 import App from "./App";
 import { UserProvider } from "./providers/userContext";
+import { CartProvider } from "./providers/cartContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ThemeProvider theme={mainTheme}>
-          <App />
-        </ThemeProvider>
+        <CartProvider>
+          <ThemeProvider theme={mainTheme}>
+            <App />
+          </ThemeProvider>
+        </CartProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
